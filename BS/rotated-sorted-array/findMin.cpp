@@ -6,10 +6,10 @@ int findMin(int n, int arr[]){
 	int ans = INT_MAX;
 
 	while(lo <= hi){
-		int mid = lo+(hi-lo)/2;
+		int mid = (lo+hi)/2;
 
 		// if left half is sorted
-		if(arr[lo] < arr[mid]){
+		if(arr[lo] <= arr[mid]){
 		// pick the min of the left half
 			ans = min(ans, arr[lo]);
 		// eliminate the left half
@@ -17,7 +17,7 @@ int findMin(int n, int arr[]){
 			continue;
 		}
 		// if the right half is sorted
-		else if(arr[hi] > arr[mid]){
+		else if(arr[hi] >= arr[mid]){
 			// pick the min of the right half
 			ans = min(ans, arr[mid]);
 			// eliminate the right half
@@ -33,7 +33,7 @@ int main(){
 	int n;
 	cin >> n;
 
-	int arr[n]	;
+	int arr[n];
 	for (int i = 0; i < n; ++i)
 	{
 		cin >> arr[i];
@@ -41,4 +41,7 @@ int main(){
 
 	int ans = findMin(n, arr);
 	cout << ans;
+
+	return 0;
 }
+
