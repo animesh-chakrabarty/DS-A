@@ -8,11 +8,19 @@ public:
 
 	// push
 	void push(int x){
+		if(top >= 9){
+			cout << "stack reached it's max capacity" << endl;
+			return;
+		}
 		top++;
 		st[top] = x;
 	}
 	// pop
 	void pop(){
+		if(top == -1){
+			cout << "no element in stack to pop" << endl;
+			return;
+		}
 		top--;
 	}
 	// top
@@ -103,6 +111,5 @@ int main(){
 	cout << q->topElement() << " ";
 
 	delete q;
-	
 	return 0;
 }
