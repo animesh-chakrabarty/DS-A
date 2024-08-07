@@ -25,6 +25,53 @@ public:
 	}
 };
 
+class QueueImp{
+public: 
+	int start = -1;
+	int end = -1;
+	int currentSize = 0;
+	int q[10];
+
+	// push
+	void push(int x){
+		// if max capacity is reached
+		if(currentSize >= 10){
+			cout << "queue reached it's max capacity" << endl;
+			return ;
+		}
+		// if queue is empty
+		if(currentSize == 0){
+			start++;
+			end++;
+			q[end] = x;
+			currentSize++;
+			return;
+		}
+		end++;
+		q[end] = x;
+		currentSize++;
+	}
+	// pop
+	void pop(){
+		if(currentSize == 0){
+			cout << "no element in queue to pop" << endl;
+			return;
+		}
+
+		start++;
+		currentSize--;
+	}
+	// top
+	int topElement(){
+		return q[start];
+	}
+
+	// size
+	int size(){
+		return currentSize;
+	}
+};
+
 int main(){
 	StackImp* st = new StackImp();
 	st->push(10);
@@ -39,5 +86,23 @@ int main(){
 	cout << st->size() << " ";
 
 	delete st;
+
+	cout << endl;
+
+	QueueImp* q = new QueueImp();
+	q->push(10);
+	q->push(11);
+	q->push(12);
+	cout << q->size() << " ";
+	q->pop();
+	cout << q->topElement() << " ";
+	q->push(90);
+	cout << q->topElement() << " ";
+	q->pop();
+	cout << q->size() << " ";
+	cout << q->topElement() << " ";
+
+	delete q;
+	
 	return 0;
 }
