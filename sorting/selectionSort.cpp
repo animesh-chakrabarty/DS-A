@@ -2,21 +2,21 @@
 using namespace std;
 
 // approach -  select the minimum value and put it on the right index
+// TC - O(N^2)
+// SC - O(1)
 void selectionSort(int n, int arr[]){
-	int minIndex = 0;
 
-	for (int i = 0; i < n; ++i)
+	for (int i = 0; i < n-1; ++i)
 	{
 		// iterating on the unsorted part of the array and finding minimum index
-		int min_val = INT_MAX;
-		for (int j = i; j < n; ++j)
+		int mini = i;
+		for (int j = i+1; j < n; ++j)
 		{
-			if(arr[j] <= min_val){
-				min_val = arr[j];
-				minIndex = j;
+			if(arr[j] <= arr[mini]){
+				mini = j;
 			}
 		}
-		swap(arr[i], arr[minIndex]);
+		swap(arr[i], arr[mini]);
 	}
 	
 }
