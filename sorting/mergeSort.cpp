@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// approach - divide conquere
+// TC - O(NlogN)
+// SC - O(N)
 void merge(int lo, int mid, int hi, int arr[] ){
 	int left = lo;
 	int right = mid+1;
