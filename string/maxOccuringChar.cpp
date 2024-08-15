@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// TC - max(str.length(), 26)
-// SC - O(26) - O(1)
+// TC - O(N)
+// SC - O(1)
 
 char maxOccuringCharacter(string str){
 	int hashArr[26] = {0};
