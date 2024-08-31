@@ -6,7 +6,7 @@ using namespace std;
 int reverseNum(int n){
 	int reversedNum = 0;
 
-	while(n > 0){
+	while(n != 0){
 		int ld = n%10;
 		n = n/10;
 		reversedNum = reversedNum*10 + ld;
