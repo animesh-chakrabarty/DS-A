@@ -2,7 +2,7 @@
 using namespace std;
 
 // TC - O(N)
-// SC - O(1)
+// SC - O(N)
 
 string replaceSpaces(string str){
 	string newStr;
