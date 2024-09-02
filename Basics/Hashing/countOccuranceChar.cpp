@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// constraint: there can only be lowercase characters in the string
+
 void createHashArr(string str, int hashArr[]){
 	for (int i = 0; i < str.length(); ++i)
 	{
