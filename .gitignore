@@ -1,12 +1,2 @@
-# Ignore everything
-# *
-
-# !.gitignore
-# Do not ignore directories (so Git can traverse subfolders)
-# !*/
-
-# Track all .cpp files in subfolders
-# !*.cpp
-# !**/*.cpp
 **/*.exe
 **/*.in
