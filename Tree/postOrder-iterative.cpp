@@ -28,8 +28,10 @@ Node* createBT(){
 	return root;
 }
 
-// post order traversal using 2 stack (storing values in vector)
-vector<int> postOrder2(Node* root){
+// using 2 stack + vector for storing ans
+// TC - O(2N) = O(N)
+// SC - O(2N) = O(N)
+vector<int> postOrderUsing2Stack(Node* root){
 	stack<Node*> st1;
 	stack<Node*> st2;
 	vector<int> ans;
@@ -57,8 +59,10 @@ vector<int> postOrder2(Node* root){
 	return ans;
 }
 
-// post order traversal using 1 stack (storing values in vector)
-vector<int> postOrder(Node* root){
+// using 1 stack + vector for storing ans 
+// TC - O(N + N/2) = O(N)
+// SC - O(N)
+vector<int> postOrderUsing1Stack(Node* root){
 	stack<Node*> st1;
 	vector<int> ans;
 
@@ -83,14 +87,14 @@ int main(){
 	Node* root = createBT();
 
 	vector<int> ans;
-	ans = postOrder(root);
+	ans = postOrderUsing2Stack(root);
 
 	for(auto it: ans)cout << it << " ";
 
-	cout << endl;
-
 	vector<int> ans2;
-	ans2 = postOrder2(root);
+	ans2 = postOrderUsing1Stack(root);
 
 	for(auto it: ans2)cout << it << " ";
+
+	cout << endl;
 }
