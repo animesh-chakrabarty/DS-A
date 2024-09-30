@@ -38,8 +38,9 @@ vector<int> preOrder(Node* root){
 
 	while(!st.empty()){
 		Node* temp = st.top();
-		ans.push_back(temp->data);
 		st.pop();
+		
+		ans.push_back(temp->data);
 
 		if(temp->right)st.push(temp->right);
 		if(temp->left)st.push(temp->left);

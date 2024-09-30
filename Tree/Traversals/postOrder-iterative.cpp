@@ -66,6 +66,8 @@ vector<int> postOrderUsing1Stack(Node* root){
 	stack<Node*> st1;
 	vector<int> ans;
 
+	if(!root) return ans;
+	
 	st1.push(root);
 
 	while(!st1.empty()){
