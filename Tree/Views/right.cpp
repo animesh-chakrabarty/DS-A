@@ -32,7 +32,7 @@ Node* createBT(){
 	return root;
 }
 
-vector<int> leftView(Node* root){
+vector<int> rightView(Node* root){
 	vector<int> ans;
 	if(!root)return ans;
 
@@ -51,8 +51,8 @@ vector<int> leftView(Node* root){
 
 		if(!mp[level])mp[level]=element->data;
 
-		if(element->left)q.push({element->left, level+1});
 		if(element->right)q.push({element->right, level+1});
+		if(element->left)q.push({element->left, level+1});
 	}
 
 	for(auto it: mp)ans.push_back(it.second);
@@ -62,7 +62,7 @@ int main(){
 	Node* root = createBT();
 
 	vector<int> view;
-	view = leftView(root);
+	view = rightView(root);
 
 	for(auto it: view)cout << it << " ";
 }

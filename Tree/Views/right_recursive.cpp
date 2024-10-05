@@ -32,37 +32,20 @@ Node* createBT(){
 	return root;
 }
 
-vector<int> leftView(Node* root){
-	vector<int> ans;
-	if(!root)return ans;
+void rightView(Node* node, int level, vector<int> &ans){
+	if(!node) return;
 
-	queue<pair<Node*, int>> q;
-	map<int, int> mp;
+	if(ans.size() == level)ans.push_back(node->data);
 
-	q.push({root, 0});
-
-	while(!q.empty()){
-		pair<Node*, int> temp;
-		temp = q.front();
-		q.pop();
-
-		Node* element = temp.first;
-		int level = temp.second;
-
-		if(!mp[level])mp[level]=element->data;
-
-		if(element->left)q.push({element->left, level+1});
-		if(element->right)q.push({element->right, level+1});
-	}
-
-	for(auto it: mp)ans.push_back(it.second);
+	rightView(node->right, level+1, ans);
+	rightView(node->left, level+1, ans);
 }
 
 int main(){
 	Node* root = createBT();
 
 	vector<int> view;
-	view = leftView(root);
+	rightView(root, 0, view);
 
 	for(auto it: view)cout << it << " ";
 }
