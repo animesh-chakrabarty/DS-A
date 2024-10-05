@@ -25,15 +25,19 @@ Node* createBT(){
 	root->right->left = new Node(6);
 	root->right->right = new Node(7);
 
+	root->right->left->left = new Node(8);
+
+	root->right->left->left->right = new Node(9);
+
 	return root;
 }
 
-vector<int> bottomView(Node* root){
+vector<int> leftView(Node* root){
 	vector<int> ans;
 	if(!root)return ans;
-	
-	queue<pair<Node*,int>> q;
-	map<int,int> mp;
+
+	queue<pair<Node*, int>> q;
+	map<int, int> mp;
 
 	q.push({root, 0});
 
@@ -42,25 +46,23 @@ vector<int> bottomView(Node* root){
 		temp = q.front();
 		q.pop();
 
-		int lineNo = temp.second;
 		Node* element = temp.first;
+		int level = temp.second;
 
-		mp[lineNo] = element->data;
+		if(!mp[level])mp[level]=element->data;
 
-		if(element->left)q.push({element->left, lineNo-1});
-		if(element->right)q.push({element->right, lineNo+1});		
+		if(element->left)q.push({element->left, level+1});
+		if(element->right)q.push({element->right, level+1});
 	}
 
 	for(auto it: mp)ans.push_back(it.second);
-
-	return ans;
 }
 
 int main(){
 	Node* root = createBT();
 
 	vector<int> view;
-	view = bottomView(root);
+	view = leftView(root);
 
 	for(auto it: view)cout << it << " ";
 }
