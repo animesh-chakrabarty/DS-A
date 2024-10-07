@@ -1,0 +1,21 @@
+- Tree
+    - Traversal 
+        - Recursive DFS
+        - Iterative DFS
+        - BFS
+    - Type - 1 
+        - Height of BT
+        - Check if height-balanced
+        - Diameter
+        - Max Path Sum
+        - Check identical
+    - Advanced Traversal
+        - ZigZag Traversal
+        - Boundary Order Traversal
+    - Vertical Order Traversal Implementation
+        - Vertical Order Traversal 
+        - Top View
+        - Bottom View
+    - Other Views
+        - Left View
+        - Right View
